@@ -2,30 +2,23 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
-
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
-
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
-
-<Pane prefHeight="400.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<Pane prefHeight="400.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
 
 
    <children>
 
          <TabPane layoutX="75.0" prefHeight="300.0" prefWidth="500.0" snapToPixel="false" tabClosingPolicy="UNAVAILABLE" tabMinWidth="109.0">
         <tabs>
-          <Tab text="Obst">
+          <Tab onSelectionChanged="#tabAction" text="Obst">
                <content>
                   <GridPane prefHeight="250.0" prefWidth="500.0">
                      <columnConstraints>
@@ -41,47 +34,47 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Button mnemonicParsing="false" text="Button">
+                        <Button mnemonicParsing="false" onAction="#itemAction" text="Button">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="Button" GridPane.rowIndex="1">
+                        <Button mnemonicParsing="false" onAction="#itemAction" text="Button" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="3">
+                        <Button mnemonicParsing="false" onAction="#itemAction" text="Button" GridPane.columnIndex="3">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="2">
+                        <Button mnemonicParsing="false" onAction="#itemAction" text="Button" GridPane.columnIndex="2">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="Obst" GridPane.columnIndex="1">
+                        <Button mnemonicParsing="false" onAction="#itemAction" text="Obst" GridPane.columnIndex="1">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                        <Button mnemonicParsing="false" onAction="#itemAction" text="Button" GridPane.columnIndex="3" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                        <Button mnemonicParsing="false" onAction="#itemAction" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Button mnemonicParsing="false" onAction="#itemAction" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <Button mnemonicParsing="false" onAction="#itemAction" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
@@ -91,12 +84,12 @@
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="Button" GridPane.rowIndex="2">
+                        <Button mnemonicParsing="false" onAction="#itemAction" text="Button" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                        <Button mnemonicParsing="false" onAction="#itemAction" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
@@ -106,7 +99,7 @@
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                        <Button mnemonicParsing="false" onAction="#itemAction" text="Button" GridPane.columnIndex="3" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
@@ -125,7 +118,7 @@
                   </GridPane>
                </content>
             </Tab>
-          <Tab closable="false" text="Gemuese">
+          <Tab closable="false" onSelectionChanged="#tabAction" text="Gemuese">
                <content>
                   <GridPane prefHeight="250.0" prefWidth="500.0">
                      <columnConstraints>
@@ -225,7 +218,7 @@
                   </GridPane>
                </content>
             </Tab>
-            <Tab text="Eis">
+            <Tab onSelectionChanged="#tabAction" text="Eis">
                <content>
                   <GridPane prefHeight="250.0" prefWidth="500.0">
                      <columnConstraints>
@@ -241,27 +234,27 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Button mnemonicParsing="false" text="Button">
+                        <Button mnemonicParsing="false" onAction="#itemAction" text="Button">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="Button" GridPane.rowIndex="1">
+                        <Button mnemonicParsing="false" onAction="#itemAction" text="Button" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="3">
+                        <Button mnemonicParsing="false" onAction="#itemAction" text="Button" GridPane.columnIndex="3">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="2">
+                        <Button mnemonicParsing="false" onAction="#itemAction" text="Button" GridPane.columnIndex="2">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="1">
+                        <Button mnemonicParsing="false" onAction="#itemAction" text="Button" GridPane.columnIndex="1">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
@@ -276,7 +269,7 @@
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Button mnemonicParsing="false" onAction="#itemAction" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
@@ -325,7 +318,7 @@
                   </GridPane>
                </content>
             </Tab>
-            <Tab text="Other">
+            <Tab onSelectionChanged="#tabAction" text="Other">
                <content>
                   <GridPane prefHeight="250.0" prefWidth="500.0">
                      <columnConstraints>
@@ -341,82 +334,82 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Button mnemonicParsing="false" text="Button">
+                        <Button mnemonicParsing="false" onAction="#itemAction" text="Button">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="Button" GridPane.rowIndex="1">
+                        <Button mnemonicParsing="false" onAction="#itemAction" text="Button" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="3">
+                        <Button mnemonicParsing="false" onAction="#itemAction" text="Button" GridPane.columnIndex="3">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="Eis" GridPane.columnIndex="2">
+                        <Button mnemonicParsing="false" onAction="#itemAction" text="Eis" GridPane.columnIndex="2">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="1">
+                        <Button mnemonicParsing="false" onAction="#itemAction" text="Button" GridPane.columnIndex="1">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                        <Button mnemonicParsing="false" onAction="#itemAction" text="Button" GridPane.columnIndex="3" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                        <Button mnemonicParsing="false" onAction="#itemAction" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Button mnemonicParsing="false" onAction="#itemAction" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <Button mnemonicParsing="false" onAction="#itemAction" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="Button" GridPane.rowIndex="3">
+                        <Button mnemonicParsing="false" onAction="#itemAction" text="Button" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="Button" GridPane.rowIndex="2">
+                        <Button mnemonicParsing="false" onAction="#itemAction" text="Button" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                        <Button mnemonicParsing="false" onAction="#itemAction" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                        <Button mnemonicParsing="false" onAction="#itemAction" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                        <Button mnemonicParsing="false" onAction="#itemAction" text="Button" GridPane.columnIndex="3" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                        <Button mnemonicParsing="false" onAction="#itemAction" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="Other" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                        <Button mnemonicParsing="false" onAction="#itemAction" text="Other" GridPane.columnIndex="3" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
@@ -427,18 +420,18 @@
             </Tab>
         </tabs>
       </TabPane>
-      <ListView layoutY="290.0" prefHeight="70.0" prefWidth="400.0" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.rowSpan="2" GridPane.valignment="CENTER">
+      <ListView fx:id="selectedItems" layoutY="290.0" prefHeight="70.0" prefWidth="400.0" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.rowSpan="2" GridPane.valignment="CENTER">
 
          <GridPane.margin>
             <Insets bottom="10.0" />
          </GridPane.margin>
       </ListView>
-      <TextField editable="false" layoutY="360.0" prefHeight="40.0" prefWidth="400.0" text="Summe:" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="6" GridPane.valignment="TOP">
+      <TextField fx:id="summe" editable="false" layoutY="360.0" prefHeight="40.0" prefWidth="400.0" text="Summe:" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="6" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets bottom="5.0" />
          </GridPane.margin>
       </TextField>
-      <Button layoutX="400.0" layoutY="368.0" mnemonicParsing="false" text="Abkassieren" GridPane.columnIndex="5" GridPane.rowIndex="6" />
+      <Button fx:id="abkassieren" layoutX="400.0" layoutY="368.0" mnemonicParsing="false" onAction="#functionAction" text="Abkassieren" GridPane.columnIndex="5" GridPane.rowIndex="6" />
       <GridPane layoutX="400.0" layoutY="313.0" prefHeight="44.0" prefWidth="99.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -450,8 +443,8 @@
          <children>
 
 
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="+" GridPane.halignment="LEFT" GridPane.valignment="TOP" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="-" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+            <Button fx:id="plus" mnemonicParsing="false" onAction="#functionAction" prefHeight="25.0" prefWidth="25.0" text="+" GridPane.halignment="LEFT" GridPane.valignment="TOP" />
+            <Button fx:id="minus" mnemonicParsing="false" onAction="#functionAction" prefHeight="25.0" prefWidth="25.0" text="-" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP" />
 
          </children>
       </GridPane>
