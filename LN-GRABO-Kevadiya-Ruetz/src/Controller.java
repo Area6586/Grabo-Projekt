@@ -6,13 +6,17 @@ import javafx.scene.control.Tab;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
 public class Controller implements Initializable {
 	//	ListItems lists;
-	
-	//	Item[] selectedList = lists.getObst();
+		Economics eco;
+		String[] selectedList;
+		ObservableList<String> items = FXCollections.observableArrayList();
+		//= lists.getObst();
 	
 	//mode 0: default, mode 1 :rückgeld eintragen
 		int mode = 0;
@@ -38,7 +42,19 @@ public class Controller implements Initializable {
 		
 		System.out.println("Item button pressed");
 		Button src = (Button)e.getSource();
+		//Item temp;
+		for(int i = 0; 0<= selectedList.length; i++) {
+			//Abändern auf Item
+			if(src.getText().equals(selectedList[i])) {
+				//temp = selectedList[i];
+				break;
+				
+			}
+			
+		}
 		
+		//eco.changesum(temp.getPrice);
+		selectedItems.get
 		
 		
 
