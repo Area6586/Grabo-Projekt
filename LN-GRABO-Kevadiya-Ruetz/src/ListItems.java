@@ -8,8 +8,8 @@
  */
 public class ListItems {
 
-	private String[] obst ;
-	private String[] gemuese ;
+	private String[] obst = {"Apple", "Orange","Banana", "Watermelon", "Strawberry", "Grape", "Mango", "Kiwi", "Avacado"}  ;
+	private String[] gemuese = {} ;
 	private String[] eis;
 	private String[] other;
 	
@@ -27,7 +27,7 @@ public class ListItems {
 	public String[] getOtherItems() {
 		return other;
 	}
-	
-	
+
+
 	
 }
