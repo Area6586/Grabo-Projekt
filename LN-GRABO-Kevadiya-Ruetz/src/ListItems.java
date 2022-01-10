@@ -8,23 +8,39 @@
  */
 public class ListItems {
 	//"Apple", "Orange","Banana", "Watermelon", "Strawberry", "Grape", "Mango", "Kiwi", "Avacado"
-	private Items[] obst = {new Items("Apple", 2.5), new Items("Watermelon", 2.0) }  ;
-	private String[] gemuese = {} ;
-	private String[] eis;
-	private String[] other;
+	private Items[] obst = {new Items("Apple", 2.5), new Items("Watermelon", 2.0),
+							new Items("Strawberry", 2.0), new Items("Kiwi", 2.0),
+							new Items("Mango", 2.0), new Items("Avacado", 2.0),
+							new Items("Orange", 2.0), new Items("Banana", 2.0),
+							new Items("Grape", 2.0)} ;
+	private Items[] gemuese = {	new Items("Bohne", 2.0),new Items("Kohl", 2.0),
+								new Items("Karotte", 2.0),new Items("Bluemenkohl", 2.0),
+								new Items("Main", 2.0),new Items("Gurke", 2.0),
+								new Items("Kartoffeln", 2.0),new Items("Zwiebel", 2.0),
+								new Items("Tomate", 2.0)} ;
+	private Items[] eis = {	new Items("Chocolate", 2.0),new Items("Strawberry", 2.0),
+								new Items("Vanilla", 2.0),new Items("EspressoFlake", 2.0),
+								new Items("BlackCherry", 2.0),new Items("PistachioAlmonds", 2.0),
+								new Items("FrenchVanilla", 2.0),new Items("MindChocolate", 2.0),
+								new Items("Coconut", 2.0)} ;
+	private Items[] other = {	new Items("Orange", 2.0),new Items("Orange", 2.0),
+								new Items("Orange", 2.0),new Items("Orange", 2.0),
+								new Items("Orange", 2.0),new Items("Orange", 2.0),
+								new Items("Orange", 2.0),new Items("Orange", 2.0),
+								new Items("Orange", 2.0)};
 	
 	public Items[] getObstItems() {
 		return obst;
 	}
-	public String[] getGemueseItems() {
+	public Items[] getGemueseItems() {
 		return gemuese;
 	}
 	
-	public String[] getEisItems() {
+	public Items[] getEisItems() {
 		return eis;
 	}
 	
-	public String[] getOtherItems() {
+	public Items[] getOtherItems() {
 		return other;
 	}
 
