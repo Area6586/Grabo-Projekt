@@ -54,7 +54,7 @@ public class Controller implements Initializable {
 		}
 		
 		//eco.changesum(temp.getPrice);
-		selectedItems.get
+		//selectedItems.get
 		
 		
 
