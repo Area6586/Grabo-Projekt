@@ -6,7 +6,7 @@ public class Items {
 	  
 	
 	// preis of Item
-	private float preis = 0;
+	private double preis = 0;
 
 	
 	//get Method for name of item
@@ -15,11 +15,14 @@ public class Items {
 	  }
 	
 	//get method for pries of item
-	public float getPreis() {
+	public double getPreis() {
 		return preis;
 	}
 
-
+	public Items(String name, double preis) {
+		this.name = name;
+		this.preis = preis;
+	}
 	
 
 

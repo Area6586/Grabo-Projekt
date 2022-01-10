@@ -7,13 +7,13 @@
  *
  */
 public class ListItems {
-
-	private String[] obst = {"Apple", "Orange","Banana", "Watermelon", "Strawberry", "Grape", "Mango", "Kiwi", "Avacado"}  ;
+	//"Apple", "Orange","Banana", "Watermelon", "Strawberry", "Grape", "Mango", "Kiwi", "Avacado"
+	private Items[] obst = {new Items("Apple", 2.5), new Items("Watermelon", 2.0) }  ;
 	private String[] gemuese = {} ;
 	private String[] eis;
 	private String[] other;
 	
-	public String[] getObstItems() {
+	public Items[] getObstItems() {
 		return obst;
 	}
 	public String[] getGemueseItems() {
@@ -28,6 +28,6 @@ public class ListItems {
 		return other;
 	}
 
-
+	
 	
 }
