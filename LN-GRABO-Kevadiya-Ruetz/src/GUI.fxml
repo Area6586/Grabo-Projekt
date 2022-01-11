@@ -34,7 +34,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Button mnemonicParsing="false" onAction="#itemAction" text="Button">
+                        <Button mnemonicParsing="false" onAction="#itemAction" text="Apple">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
