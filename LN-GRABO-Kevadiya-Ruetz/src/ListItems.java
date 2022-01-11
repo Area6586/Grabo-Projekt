@@ -7,8 +7,8 @@
  *
  */
 public class ListItems {
-	//"Apple", "Orange","Banana", "Watermelon", "Strawberry", "Grape", "Mango", "Kiwi", "Avacado"
-	private Items[] obst = {new Items("Apple", 2.5), new Items("Watermelon", 2.0),
+
+	private static Items[] obst = {new Items("Apple", 2.5), new Items("Watermelon", 2.0),
 							new Items("Strawberry", 2.0), new Items("Kiwi", 2.0),
 							new Items("Mango", 2.0), new Items("Avacado", 2.0),
 							new Items("Orange", 2.0), new Items("Banana", 2.0),
@@ -18,16 +18,16 @@ public class ListItems {
 								new Items("Main", 2.0),new Items("Gurke", 2.0),
 								new Items("Kartoffeln", 2.0),new Items("Zwiebel", 2.0),
 								new Items("Tomate", 2.0)} ;
-	private Items[] eis = {	new Items("Chocolate", 2.0),new Items("Strawberry", 2.0),
+	private Items[] eis = 	{new Items("Chocolate", 2.0),new Items("Strawberry", 2.0),
 								new Items("Vanilla", 2.0),new Items("EspressoFlake", 2.0),
 								new Items("BlackCherry", 2.0),new Items("PistachioAlmonds", 2.0),
 								new Items("FrenchVanilla", 2.0),new Items("MindChocolate", 2.0),
 								new Items("Coconut", 2.0)} ;
-	private Items[] other = {	new Items("Orange", 2.0),new Items("Orange", 2.0),
-								new Items("Orange", 2.0),new Items("Orange", 2.0),
-								new Items("Orange", 2.0),new Items("Orange", 2.0),
-								new Items("Orange", 2.0),new Items("Orange", 2.0),
-								new Items("Orange", 2.0)};
+	private Items[] other = {	new Items("Kitkat", 2.0),new Items("Mars", 2.0),
+								new Items("M & M", 2.0),new Items("Candy", 2.0),
+								new Items("RitterSport ", 2.0),new Items("OrangeSaft", 2.0),
+								new Items("Cola", 2.0),new Items("Pizza", 2.0),
+								new Items("Bier", 4.0)};
 	
 	public Items[] getObstItems() {
 		return obst;
@@ -44,6 +44,5 @@ public class ListItems {
 		return other;
 	}
 
-	
-	
+
 }
