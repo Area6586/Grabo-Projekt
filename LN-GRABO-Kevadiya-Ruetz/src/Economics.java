@@ -1,5 +1,8 @@
+import java.text.NumberFormat;
 
 //For sum,change and other economic purposes
+
+//TODO: Always round return values of getSum and getChange to two decimal places
 
 public class Economics {
 	
@@ -12,11 +15,14 @@ public class Economics {
 	//(or ActionHandler of the +/- buttons)
 	public void changeSum(double d) {
 	
-		sum = sum + d;
+		NumberFormat n = NumberFormat.getInstance();
+		n.setMaximumFractionDigits(2);
+		
+		sum = sum+d;
 	
 	}
 	
-	public double getChange(float given) {
+	public double getChange(double given) {
 		
 		return given - sum;
 		

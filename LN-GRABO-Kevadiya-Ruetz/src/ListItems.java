@@ -8,23 +8,23 @@
  */
 public class ListItems {
 	//"Apple", "Orange","Banana", "Watermelon", "Strawberry", "Grape", "Mango", "Kiwi", "Avacado"
-	private Items[] obst = {new Items("Apple", 2.5), new Items("Watermelon", 2.0) }  ;
-	private String[] gemuese = {} ;
-	private String[] eis;
-	private String[] other;
+	private Items[] obst = {new Items("Apple", 2.5), new Items("Obst", 2.0) }  ;
+	private Items[] gemuese = {new Items("Gurke",2.1),new Items("Yams", 0.6)} ;
+	private Items[] eis;
+	private Items[] other;
 	
 	public Items[] getObstItems() {
 		return obst;
 	}
-	public String[] getGemueseItems() {
+	public Items[] getGemueseItems() {
 		return gemuese;
 	}
 	
-	public String[] getEisItems() {
+	public Items[] getEisItems() {
 		return eis;
 	}
 	
-	public String[] getOtherItems() {
+	public Items[] getOtherItems() {
 		return other;
 	}
 
