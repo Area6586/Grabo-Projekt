@@ -37,42 +37,42 @@
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Kiwi" GridPane.rowIndex="1">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Kiwi" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Erdbeere" GridPane.columnIndex="2">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Erdbeere" GridPane.columnIndex="2">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Melone" GridPane.columnIndex="1">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Melone" GridPane.columnIndex="1">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Avacado" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Avacado" GridPane.columnIndex="2" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Mango" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Mango" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Banana" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Banana" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Orange" GridPane.rowIndex="2">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Orange" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Ananas" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Ananas" GridPane.columnIndex="2" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
@@ -95,47 +95,47 @@
                         <RowConstraints maxHeight="120.0" minHeight="10.0" prefHeight="90.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Bohne">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Bohne">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Bluemenkohl" GridPane.rowIndex="1">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Bluemenkohl" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Karotte" GridPane.columnIndex="2">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Karotte" GridPane.columnIndex="2">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Kohl" GridPane.columnIndex="1">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Kohl" GridPane.columnIndex="1">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Kartoffeln" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Kartoffeln" GridPane.columnIndex="2" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Gurke" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Gurke" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Tomate" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Tomate" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Zwiebel" GridPane.rowIndex="2">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Zwiebel" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Zitrone" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Zitrone" GridPane.columnIndex="2" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
@@ -158,47 +158,47 @@
                         <RowConstraints maxHeight="120.0" minHeight="10.0" prefHeight="90.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Chocolate">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Chocolate">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="BlackCherry" GridPane.rowIndex="1">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="BlackCherry" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="EspressoFlake" GridPane.columnIndex="2">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="EspressoFlake" GridPane.columnIndex="2">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Vanilla" GridPane.columnIndex="1">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Vanilla" GridPane.columnIndex="1">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="FrenchVanilla" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="FrenchVanilla" GridPane.columnIndex="2" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Pistachio" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Pistachio" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="MindChocolate" GridPane.rowIndex="2">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="MindChocolate" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Coconut" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Coconut" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Mango" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Mango" GridPane.columnIndex="2" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
@@ -221,47 +221,47 @@
                         <RowConstraints maxHeight="120.0" minHeight="10.0" prefHeight="90.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Kitkat">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Kitkat">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Candy" GridPane.rowIndex="1">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Candy" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="M &amp; M" GridPane.columnIndex="2">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="M &amp; M" GridPane.columnIndex="2">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Mars" GridPane.columnIndex="1">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Mars" GridPane.columnIndex="1">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="OrangeSaft" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="OrangeSaft" GridPane.columnIndex="2" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="RitterSport" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="RitterSport" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Pizza" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Pizza" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Cola" GridPane.rowIndex="2">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Cola" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Bier" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Bier" GridPane.columnIndex="2" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
