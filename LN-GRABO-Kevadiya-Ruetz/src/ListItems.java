@@ -8,6 +8,7 @@
  */
 public class ListItems {
 
+
 	private Items[] obst = 	{	new Items("Apfel", 2.5), 
 								new Items("Melone", 2.0),
 								new Items("Erdbeere", 2.0), 
@@ -44,6 +45,7 @@ public class ListItems {
 								new Items("Cola", 2.0),
 								new Items("Pizza", 2.0),
 								new Items("Bier", 4.0)};
+
 	
 	public Items[] getObstItems() {
 		return obst;

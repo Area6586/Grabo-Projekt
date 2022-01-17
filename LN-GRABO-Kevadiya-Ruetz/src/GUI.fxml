@@ -2,23 +2,30 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<Pane prefHeight="400.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<Pane prefHeight="400.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
 
 
    <children>
+      <TableView fx:id="itemTable" layoutX="75.0" layoutY="294.0" prefHeight="66.0" prefWidth="400.0">
+         <columns>
+            <TableColumn fx:id="anzCol" prefWidth="75.0" text="Anzahl" />
+            <TableColumn fx:id="nameCol" prefWidth="309.0" text="Name" />
+         </columns>
+      </TableView>
 
          <TabPane layoutX="75.0" prefHeight="300.0" prefWidth="500.0" snapToPixel="false" tabClosingPolicy="UNAVAILABLE" tabMinWidth="109.0">
         <tabs>
-          <Tab text="Obst">
+          <Tab closable="false" onSelectionChanged="#tabAction" text="Obst">
                <content>
                   <GridPane prefHeight="271.0" prefWidth="319.0">
                      <columnConstraints>
@@ -32,47 +39,66 @@
                         <RowConstraints maxHeight="120.0" minHeight="10.0" prefHeight="90.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Apfel">
+
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#itemAction" prefHeight="50.0" prefWidth="100.0" text="Apfel">
+
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Kiwi" GridPane.rowIndex="1">
+
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#itemAction" prefHeight="50.0" prefWidth="100.0" text="Kiwi" GridPane.rowIndex="1">
+
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Erdbeere" GridPane.columnIndex="2">
+
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#itemAction" prefHeight="50.0" prefWidth="100.0" text="Erdbeere" GridPane.columnIndex="2">
+
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Melone" GridPane.columnIndex="1">
+
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#itemAction" prefHeight="50.0" prefWidth="100.0" text="Melone" GridPane.columnIndex="1">
+
+
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Avacado" GridPane.columnIndex="2" GridPane.rowIndex="1">
+
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#itemAction" prefHeight="50.0" prefWidth="100.0" text="Avacado" GridPane.columnIndex="2" GridPane.rowIndex="1">
+
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Mango" GridPane.columnIndex="1" GridPane.rowIndex="1">
+
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#itemAction" prefHeight="50.0" prefWidth="100.0" text="Mango" GridPane.columnIndex="1" GridPane.rowIndex="1">
+
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Banana" GridPane.columnIndex="1" GridPane.rowIndex="2">
+
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#itemAction" prefHeight="50.0" prefWidth="100.0" text="Banana" GridPane.columnIndex="1" GridPane.rowIndex="2">
+
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Orange" GridPane.rowIndex="2">
+
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#itemAction" prefHeight="50.0" prefWidth="100.0" text="Orange" GridPane.rowIndex="2">
+
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Ananas" GridPane.columnIndex="2" GridPane.rowIndex="2">
+
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#itemAction" prefHeight="50.0" prefWidth="100.0" text="Ananas" GridPane.columnIndex="2" GridPane.rowIndex="2">
+
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
@@ -81,7 +107,7 @@
                   </GridPane>
                </content>
             </Tab>
-          <Tab closable="false" text="Gemuese">
+          <Tab closable="false" onSelectionChanged="#tabAction" text="Gemuese">
                <content>
                   <GridPane prefHeight="250.0" prefWidth="500.0">
                      <columnConstraints>
@@ -95,47 +121,51 @@
                         <RowConstraints maxHeight="120.0" minHeight="10.0" prefHeight="90.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Bohne">
+
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#itemAction" prefHeight="50.0" prefWidth="100.0" text="Bohne">
+
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Bluemenkohl" GridPane.rowIndex="1">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#itemAction" prefHeight="50.0" prefWidth="100.0" text="Bluemenkohl" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Karotte" GridPane.columnIndex="2">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#itemAction" prefHeight="50.0" prefWidth="100.0" text="Karotte" GridPane.columnIndex="2">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Kohl" GridPane.columnIndex="1">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#itemAction" prefHeight="50.0" prefWidth="100.0" text="Kohl" GridPane.columnIndex="1">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Kartoffeln" GridPane.columnIndex="2" GridPane.rowIndex="1">
+
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#itemAction" prefHeight="50.0" prefWidth="100.0" text="Kartoffeln" GridPane.columnIndex="2" GridPane.rowIndex="1">
+
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Gurke" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#itemAction" prefHeight="50.0" prefWidth="100.0" text="Gurke" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Tomate" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#itemAction" prefHeight="50.0" prefWidth="100.0" text="Tomate" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Zwiebel" GridPane.rowIndex="2">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#itemAction" prefHeight="50.0" prefWidth="100.0" text="Zwiebel" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Zitrone" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#itemAction" prefHeight="50.0" prefWidth="100.0" text="Zitrone" GridPane.columnIndex="2" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
@@ -144,7 +174,7 @@
                   </GridPane>
                </content>
             </Tab>
-            <Tab text="Eis">
+            <Tab closable="false" onSelectionChanged="#tabAction" text="Eis">
                <content>
                   <GridPane prefHeight="250.0" prefWidth="500.0">
                      <columnConstraints>
@@ -158,47 +188,59 @@
                         <RowConstraints maxHeight="120.0" minHeight="10.0" prefHeight="90.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Chocolate">
+
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#itemAction" prefHeight="50.0" prefWidth="100.0" text="Chocolate">
+
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="BlackCherry" GridPane.rowIndex="1">
+
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#itemAction" prefHeight="50.0" prefWidth="100.0" text="BlackCherry" GridPane.rowIndex="1">
+
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="EspressoFlake" GridPane.columnIndex="2">
+
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#itemAction" prefHeight="50.0" prefWidth="100.0" text="EspressoFlake" GridPane.columnIndex="2">
+
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Vanilla" GridPane.columnIndex="1">
+
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#itemAction" prefHeight="50.0" prefWidth="100.0" text="Vanilla" GridPane.columnIndex="1">
+
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="FrenchVanilla" GridPane.columnIndex="2" GridPane.rowIndex="1">
+
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#itemAction" prefHeight="50.0" prefWidth="100.0" text="FrenchVanilla" GridPane.columnIndex="2" GridPane.rowIndex="1">
+
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Pistachio" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#itemAction" prefHeight="50.0" prefWidth="100.0" text="Pistachio" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="MindChocolate" GridPane.rowIndex="2">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#itemAction" prefHeight="50.0" prefWidth="100.0" text="MindChocolate" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Coconut" GridPane.columnIndex="1" GridPane.rowIndex="2">
+
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#itemAction" prefHeight="50.0" prefWidth="100.0" text="Coconut" GridPane.columnIndex="1" GridPane.rowIndex="2">
+
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Mango" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#itemAction" prefHeight="50.0" prefWidth="100.0" text="Mango" GridPane.columnIndex="2" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
@@ -207,7 +249,7 @@
                   </GridPane>
                </content>
             </Tab>
-            <Tab text="Other">
+            <Tab closable="false" onSelectionChanged="#tabAction" text="Other">
                <content>
                   <GridPane prefHeight="250.0" prefWidth="500.0">
                      <columnConstraints>
@@ -221,47 +263,65 @@
                         <RowConstraints maxHeight="120.0" minHeight="10.0" prefHeight="90.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Kitkat">
+
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#itemAction" prefHeight="50.0" prefWidth="100.0" text="Kitkat">
+
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Candy" GridPane.rowIndex="1">
+
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#itemAction" prefHeight="50.0" prefWidth="100.0" text="Candy" GridPane.rowIndex="1">
+
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="M &amp; M" GridPane.columnIndex="2">
+
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#itemAction" prefHeight="50.0" prefWidth="100.0" text="M &amp; M" GridPane.columnIndex="2">
+
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Mars" GridPane.columnIndex="1">
+
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#itemAction" prefHeight="50.0" prefWidth="100.0" text="Mars" GridPane.columnIndex="1">
+
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="OrangeSaft" GridPane.columnIndex="2" GridPane.rowIndex="1">
+
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#itemAction" prefHeight="50.0" prefWidth="100.0" text="OrangeSaft" GridPane.columnIndex="2" GridPane.rowIndex="1">
+
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="RitterSport" GridPane.columnIndex="1" GridPane.rowIndex="1">
+
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#itemAction" prefHeight="50.0" prefWidth="100.0" text="RitterSport" GridPane.columnIndex="1" GridPane.rowIndex="1">
+
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Pizza" GridPane.columnIndex="1" GridPane.rowIndex="2">
+
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#itemAction" prefHeight="50.0" prefWidth="100.0" text="Pizza" GridPane.columnIndex="1" GridPane.rowIndex="2">
+
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Cola" GridPane.rowIndex="2">
+
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#itemAction" prefHeight="50.0" prefWidth="100.0" text="Cola" GridPane.rowIndex="2">
+
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Bier" GridPane.columnIndex="2" GridPane.rowIndex="2">
+
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#itemAction" prefHeight="50.0" prefWidth="100.0" text="Bier" GridPane.columnIndex="2" GridPane.rowIndex="2">
+
                            <GridPane.margin>
                               <Insets left="35.0" />
                            </GridPane.margin>
@@ -272,19 +332,13 @@
             </Tab>
         </tabs>
       </TabPane>
-      <ListView layoutY="290.0" prefHeight="70.0" prefWidth="400.0" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.rowSpan="2" GridPane.valignment="CENTER">
-
-         <GridPane.margin>
-            <Insets bottom="10.0" />
-         </GridPane.margin>
-      </ListView>
-      <TextField editable="false" layoutY="360.0" prefHeight="40.0" prefWidth="400.0" text="Summe:" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="6" GridPane.valignment="TOP">
+      <TextField fx:id="summe" editable="false" layoutX="75.0" layoutY="361.0" prefHeight="40.0" prefWidth="400.0" text="Summe: 0.0" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="6" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets bottom="5.0" />
          </GridPane.margin>
       </TextField>
-      <Button layoutX="400.0" layoutY="368.0" mnemonicParsing="false" text="Abkassieren" GridPane.columnIndex="5" GridPane.rowIndex="6" />
-      <GridPane layoutX="400.0" layoutY="313.0" prefHeight="44.0" prefWidth="99.0">
+      <Button fx:id="abkassieren" layoutX="479.0" layoutY="368.0" mnemonicParsing="false" onAction="#functionAction" text="Abkassieren" GridPane.columnIndex="5" GridPane.rowIndex="6" />
+      <GridPane layoutX="479.0" layoutY="313.0" prefHeight="44.0" prefWidth="99.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
          </columnConstraints>
@@ -295,13 +349,13 @@
          <children>
 
 
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="+" GridPane.halignment="LEFT" GridPane.valignment="TOP" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="-" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+            <Button fx:id="plus" mnemonicParsing="false" onAction="#functionAction" prefHeight="25.0" prefWidth="25.0" text="+" GridPane.halignment="LEFT" GridPane.valignment="TOP" />
+            <Button fx:id="minus" mnemonicParsing="false" onAction="#functionAction" prefHeight="25.0" prefWidth="25.0" text="-" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP" />
 
          </children>
       </GridPane>
 
-      <TextField disable="true" layoutX="200.0" layoutY="360.0" prefHeight="40.0" prefWidth="200.0" text="Gegeben:" visible="false" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.halignment="LEFT" GridPane.rowIndex="6" GridPane.valignment="TOP">
+      <TextField fx:id="gegeben" disable="true" layoutX="274.0" layoutY="360.0" prefHeight="40.0" prefWidth="200.0" text="Gegeben:  " visible="false" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.halignment="LEFT" GridPane.rowIndex="6" GridPane.valignment="TOP">
 
          <GridPane.margin>
             <Insets bottom="5.0" />

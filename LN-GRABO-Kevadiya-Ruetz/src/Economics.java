@@ -1,22 +1,26 @@
+import java.text.NumberFormat;
 
 //For sum,change and other economic purposes
+
+//TODO: Always round return values of getSum and getChange to two decimal places
 
 public class Economics {
 	
 	//Current sum, starts with value 0
-	private float sum = 0;
+	private double sum = 0;
 
 
 	//Can be used for increasing/decreasing the sum
 	//Called by ActionHandler of corresponding item-button with its value as the difference parameter
 	//(or ActionHandler of the +/- buttons)
-	public void changeSum(float difference) {
+	public void changeSum(double d) {
 	
-		sum = sum + difference;
+	
+		sum = sum+d;
 	
 	}
 	
-	public float getChange(float given) {
+	public double getChange(double given) {
 		
 		return given - sum;
 		
@@ -27,7 +31,7 @@ public class Economics {
 		sum = 0;
 	}
 	
-	public float getSum() {
+	public double getSum() {
 		
 		return sum;
 	}
