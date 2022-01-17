@@ -207,9 +207,9 @@ public class Controller implements Initializable {
 			//d.h. "Status" verändert sich beim Klick nicht und man kommt beim drückversuch wieder hier an
 			if (gegeben.getText().length() <= 10) {
 				
-				System.out.println("Nichts eingegeben!");
 				
-
+				a.setContentText("Nichts eingegeben!");
+				a.show();
 			
 			
 		}else{
@@ -228,7 +228,7 @@ public class Controller implements Initializable {
 				
 					}else {
 						//a.setAlertType(AlertType.ERROR);
-						a.setContentText("Zu wenig RÜckgeld!");
+						a.setContentText("Zu wenig Rückgeld!");
 						a.show();
 						
 					}
