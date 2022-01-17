@@ -89,17 +89,21 @@ public class Controller implements Initializable {
 		// Hole zum Buttontext gehörendes Item aus der selectedList
 		for (int i = 0; 0 <= selectedList.length; i++) {
 			sel = selectedList[i];
+			
 			if (src.getText().equals(sel.getName())) {
 
 				// Wenn angeklicktes Item noch nicht in items-Liste drin, füge hinzu
 
 				if (!items.contains(sel)) {
+					//
 					selectedList[i].addItem();
+					
+					//Item zur observablelist hinzufügen
 					items.add(selectedList[i]);
 
 				} else {
 
-					anzCol.setEditable(true);
+					//anzCol.setEditable(true);
 					sel.addItem();
 
 					// Manuelles setzen des Items an Index i
@@ -135,8 +139,8 @@ public class Controller implements Initializable {
 		// Item (+dessen Index in der TableView) holen, welches gerade in der TableView
 		// durch anklicken einer Reihe ausgewählt ist.
 		// Das läuft über das SelectionModel der TableView
-		Items focusItem = itemTable.getSelectionModel().getSelectedItem();
-		int indexOfFocus = itemTable.getSelectionModel().getFocusedIndex();
+		Items focusItem = tableSelect.getSelectedItem();
+		int indexOfFocus = tableSelect.getFocusedIndex();
 
 		switch (src.getText()) {
 
@@ -185,7 +189,7 @@ public class Controller implements Initializable {
 			Double rückEingabe;
 			//Wenn Text in gegeben unverändert (nichts eingegeben) ändere Buttontext nicht!
 			//d.h. "Status" verändert sich beim Klick nicht und man kommt beim drückversuch wieder hier an
-			if (gegeben.getText().length() == 10) {
+			if (gegeben.getText().length() <= 10) {
 				
 				System.out.println("Nichts eingegeben!");
 				

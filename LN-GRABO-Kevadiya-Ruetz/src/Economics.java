@@ -15,9 +15,7 @@ public class Economics {
 	//(or ActionHandler of the +/- buttons)
 	public void changeSum(double d) {
 	
-		NumberFormat n = NumberFormat.getInstance();
-		n.setMaximumFractionDigits(2);
-		
+	
 		sum = sum+d;
 	
 	}
