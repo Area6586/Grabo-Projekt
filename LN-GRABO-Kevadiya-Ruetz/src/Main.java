@@ -20,6 +20,7 @@ public class Main extends Application {
         //Anfängliche scene erzeugen und setzen
 		Scene scene = new Scene(root);
         stage.setScene(scene);
+        stage.setTitle("Kasse");
         stage.show();
 		
 		

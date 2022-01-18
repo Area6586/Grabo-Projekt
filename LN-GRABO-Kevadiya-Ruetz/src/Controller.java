@@ -9,7 +9,6 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TableColumn;
 
 import javafx.scene.control.TableView;
-import javafx.scene.control.TableView.TableViewSelectionModel;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
@@ -31,17 +30,17 @@ import javafx.scene.control.Alert.AlertType;
 
 public class Controller implements Initializable {
 
-	ListItems lists = new ListItems();
-	Economics eco = new Economics();
+	ListItems allItemLists = new ListItems();
+	Economics economy = new Economics();
 	// selectedList wird beim Tabwechsel geändert, die anderen Items werden geladen
-	Items[] selectedList = lists.getObstItems();
+	Items[] selectedList = allItemLists.getObstItems();
 
 	int listcounter = 0;
 
 	// Datenliste für TableView und TableView für die angeklickten Items
 	// Je eine Column für Anzahl und Name der Items
 
-	ObservableList<Items> items = FXCollections.observableArrayList();
+	ObservableList<Items> itemsObsList = FXCollections.observableArrayList();
 	@FXML
 	TableView<Items> itemTable = new TableView<Items>();
 	@FXML
@@ -52,26 +51,27 @@ public class Controller implements Initializable {
 	
 
 	@FXML
-	private Button abkassieren;
+	private Button abkassierenButton;
 	@FXML
-	private Button plus;
+	private Button plusButton;
 	@FXML
-	private Button minus;
+	private Button minusButton;
 	@FXML
-	private TextField summe;
+	private TextField summeTextField;
 	@FXML
-	private TextField gegeben = new TextField();
+	private TextField gegebenTextField = new TextField();
 
 	private Alert a = new Alert(AlertType.NONE);
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		a.setAlertType(AlertType.WARNING);
+		
 		// DisableProperty der +/- Buttons daran binden, ob etwas in der Tabelle
 		// ausgewählt ist!
 		// Das läuft über das selectionModel der itemTable
-		minus.disableProperty().bind(Bindings.isNull(itemTable.getSelectionModel().selectedItemProperty()));
-		plus.disableProperty().bind(Bindings.isNull(itemTable.getSelectionModel().selectedItemProperty()));
+		minusButton.disableProperty().bind(Bindings.isNull(itemTable.getSelectionModel().selectedItemProperty()));
+		plusButton.disableProperty().bind(Bindings.isNull(itemTable.getSelectionModel().selectedItemProperty()));
 
 		// Cell Value Factories (woraus die neuen Zellen bzw Reihen gebildet werden)
 		// setzen
@@ -80,7 +80,7 @@ public class Controller implements Initializable {
 
 		nameCol.setCellValueFactory(new PropertyValueFactory<Items, String>("name"));
 
-		itemTable.setItems(items);
+		itemTable.setItems(itemsObsList);
 
 	}
 
@@ -101,19 +101,19 @@ public class Controller implements Initializable {
 
 				// Wenn angeklicktes Item noch nicht in items-Liste drin, füge hinzu
 
-				if (!items.contains(sel)) {
+				if (!itemsObsList.contains(sel)) {
 					//
 					selectedList[i].addItem();
 					
 					//Item zur observablelist hinzufügen
-					items.add(selectedList[i]);
+					itemsObsList.add(selectedList[i]);
 					
 					//Immer ans Ende scrollen und aktuellstes Item anzeigen
-					itemTable.scrollTo(items.size());
+					itemTable.scrollTo(itemsObsList.size());
 
 				} else {
 
-					//anzCol.setEditable(true);
+					
 					sel.addItem();
 
 					// Manuelles setzen des Items an Index i
@@ -122,7 +122,7 @@ public class Controller implements Initializable {
 					// änderung von Werten innerhalb der Items in der ObservableList
 					// -Lazy Evaluation trotzdem gewährleistet, da nur bei den Klicks ausgeführt
 
-					itemTable.getItems().set(items.indexOf(sel), sel);
+					itemTable.getItems().set(itemsObsList.indexOf(sel), sel);
 
 				}
 
@@ -132,8 +132,8 @@ public class Controller implements Initializable {
 		}
 
 		// Summe erhöhen, Summe auf TextFeld schreiben
-		eco.changeSum(sel.getPreis());
-		summe.setText("Summe:              " + eco.getSum() + "€");
+		economy.changeSum(sel.getPreis());
+		summeTextField.setText("Summe:              " + economy.getSum() + "€");
 
 	}
 
@@ -166,7 +166,7 @@ public class Controller implements Initializable {
 			focusItem.addItem();
 			// Das hier wieder zum aktualisieren
 			itemTable.getItems().set(indexOfFocus, focusItem);
-			eco.changeSum(focusItem.getPreis());
+			economy.changeSum(focusItem.getPreis());
 
 			break;
 
@@ -179,24 +179,24 @@ public class Controller implements Initializable {
 			focusItem.decItem();
 			if (focusItem.getAnzahl() <= 0) {
 
-				items.remove(focusItem);
+				itemsObsList.remove(focusItem);
 
 			} else {
 
 				itemTable.getItems().set(indexOfFocus, focusItem);
 			}
 
-			eco.changeSum(-focusItem.getPreis());
+			economy.changeSum(-focusItem.getPreis());
 
 			break;
 
 		case "Abkassieren":
 			// Gegeben-Feld einblenden und enablen, Summenfeld disablen
-			gegeben.setVisible(true);
-			gegeben.setDisable(false);
-			summe.setDisable(true);
+			gegebenTextField.setVisible(true);
+			gegebenTextField.setDisable(false);
+			summeTextField.setDisable(true);
 
-			abkassieren.setText("Rückgeld");
+			abkassierenButton.setText("Rückgeld");
 			// Der User soll nun was ins gegeben-TextField eingeben!
 
 			break;
@@ -205,7 +205,7 @@ public class Controller implements Initializable {
 			Double rückEingabe =0.0;
 			//Wenn Text in gegeben unverändert (nichts eingegeben) ändere Buttontext nicht!
 			//d.h. "Status" verändert sich beim Klick nicht und man kommt beim drückversuch wieder hier an
-			if (gegeben.getText().length() <= 10) {
+			if (gegebenTextField.getText().length() <= 10) {
 				
 				
 				a.setContentText("Nichts eingegeben!");
@@ -215,16 +215,16 @@ public class Controller implements Initializable {
 		}else{
 			
 				//Hole hier den zurückgegebenen Geldwert aus dem TextField
-				String rückText = (String) gegeben.getText().subSequence(10, gegeben.getText().length());
+				String rückText = (String) gegebenTextField.getText().subSequence(10, gegebenTextField.getText().length());
 				
 				try {
 					rückEingabe = Double.parseDouble(rückText);
 					
-					double rückgeld = eco.getChange(rückEingabe);
+					double rückgeld = economy.getChange(rückEingabe);
 				
 					if (rückgeld >= 0) {
-					abkassieren.setText("OK");
-					gegeben.setText("Rückgeld: " + rückgeld);
+					abkassierenButton.setText("OK");
+					gegebenTextField.setText("Rückgeld: " + rückgeld);
 				
 					}else {
 						//a.setAlertType(AlertType.ERROR);
@@ -253,7 +253,7 @@ public class Controller implements Initializable {
 			//Beende die Transaktion und setze Summe und ObservableList zurück und setze alle
 			//Disables/visibles/Texte auf den Anfangswert zurück
 			
-			Iterator<Items> iter = items.iterator();
+			Iterator<Items> iter = itemsObsList.iterator();
 
 			// Bei allen Items die Anzahl zurücksetzen
 			while (iter.hasNext()) {
@@ -261,13 +261,13 @@ public class Controller implements Initializable {
 				i.clear();
 			}
 			
-			abkassieren.setText("Abkassieren");
-			eco.resetSum();
-			items.clear();
-			summe.setDisable(false);
-			gegeben.setDisable(true);
-			gegeben.setVisible(false);
-			gegeben.setText("Gegeben:  ");
+			abkassierenButton.setText("Abkassieren");
+			economy.resetSum();
+			itemsObsList.clear();
+			summeTextField.setDisable(false);
+			gegebenTextField.setDisable(true);
+			gegebenTextField.setVisible(false);
+			gegebenTextField.setText("Gegeben:  ");
 
 			break;
 
@@ -275,7 +275,7 @@ public class Controller implements Initializable {
 			break;
 
 		}
-		summe.setText("Summe:              " + eco.getSum() + "€");
+		summeTextField.setText("Summe:              " + economy.getSum() + "€");
 	}
 
 	// Ändere selectedList beim wechseln des Tabs
@@ -286,20 +286,20 @@ public class Controller implements Initializable {
 
 		case "Obst":
 
-			selectedList = lists.getObstItems();
+			selectedList = allItemLists.getObstItems();
 			break;
 		case "Gemuese":
 			System.out.println("Gemüse?!?");
-			selectedList = lists.getGemueseItems();
+			selectedList = allItemLists.getGemueseItems();
 
 			break;
 		case "Eis":
 
-			selectedList = lists.getEisItems();
+			selectedList = allItemLists.getEisItems();
 			break;
 		case "Other":
 
-			selectedList = lists.getOtherItems();
+			selectedList = allItemLists.getOtherItems();
 			break;
 
 		default:
