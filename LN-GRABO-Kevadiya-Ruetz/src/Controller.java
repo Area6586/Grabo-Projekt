@@ -32,7 +32,7 @@ public class Controller implements Initializable {
 
 	ListItems allItemLists = new ListItems();
 	Economics economy = new Economics();
-	// selectedList wird beim Tabwechsel geändert, die anderen Items werden geladen
+	//selectedList wird beim Tabwechsel geändert, die anderen Items werden geladen
 	Items[] selectedList = allItemLists.getObstItems();
 
 	int listcounter = 0;
@@ -61,11 +61,11 @@ public class Controller implements Initializable {
 	@FXML
 	private TextField gegebenTextField = new TextField();
 
-	private Alert a = new Alert(AlertType.NONE);
+	private Alert alert = new Alert(AlertType.NONE);
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		a.setAlertType(AlertType.WARNING);
+		alert.setAlertType(AlertType.WARNING);
 		
 		// DisableProperty der +/- Buttons daran binden, ob etwas in der Tabelle
 		// ausgewählt ist!
@@ -90,7 +90,7 @@ public class Controller implements Initializable {
 		// Hole Quelle des ActionEvents als Button und lies den Text davon aus
 		Button src = (Button) e.getSource();
 		Items sel = null;
-		System.out.println(src.getText());
+		//System.out.println(src.getText());
 		
 
 		// Hole zum Buttontext gehörendes Item aus der selectedList
@@ -137,8 +137,7 @@ public class Controller implements Initializable {
 
 	}
 
-	// TODO: Tabelleninhalt bei selected index auf Items-Anzahlproperty binden!- nur
-	// vielleicht
+	
 
 	// Behandle klicks auf funktionale Buttons, also + / - / Abkassieren(bzw.
 	// Rückgeld/OK)
@@ -150,11 +149,8 @@ public class Controller implements Initializable {
 		// durch anklicken einer Reihe ausgewählt ist.
 		// Das läuft über das SelectionModel der TableView
 		
-		
-		Items focusItem = itemTable.getSelectionModel().getSelectedItem();
-		
+		Items focusItem = itemTable.getSelectionModel().getSelectedItem();	
 		int indexOfFocus = itemTable.getSelectionModel().getFocusedIndex();
-		
 		
 	
 
@@ -162,12 +158,10 @@ public class Controller implements Initializable {
 
 		case "+":
 
-			// Zähler des ausgewählten Items erhöhen, Summe erhöhen
-			focusItem.addItem();
-			// Das hier wieder zum aktualisieren
-			itemTable.getItems().set(indexOfFocus, focusItem);
-			economy.changeSum(focusItem.getPreis());
-
+			plus(focusItem, indexOfFocus);
+			summeTextField.setText("Summe:              " + economy.getSum() + "€");
+			
+			
 			break;
 
 		case "-":
@@ -176,106 +170,36 @@ public class Controller implements Initializable {
 			// Wenn er dadurch auf 0 fällt, lösche aus der ObservableList
 			// Summe verringern
 
-			focusItem.decItem();
-			if (focusItem.getAnzahl() <= 0) {
-
-				itemsObsList.remove(focusItem);
-
-			} else {
-
-				itemTable.getItems().set(indexOfFocus, focusItem);
-			}
-
-			economy.changeSum(-focusItem.getPreis());
-
+			minus(focusItem, indexOfFocus);
+			summeTextField.setText("Summe:              " + economy.getSum() + "€");
+			
 			break;
 
 		case "Abkassieren":
 			// Gegeben-Feld einblenden und enablen, Summenfeld disablen
-			gegebenTextField.setVisible(true);
-			gegebenTextField.setDisable(false);
-			summeTextField.setDisable(true);
-
-			abkassierenButton.setText("Rückgeld");
+			abkassieren();
 			// Der User soll nun was ins gegeben-TextField eingeben!
 
 			break;
 		case "Rückgeld":
 			// Formatiere Eingabe im TextField dafür auf
-			Double rückEingabe =0.0;
-			//Wenn Text in gegeben unverändert (nichts eingegeben) ändere Buttontext nicht!
-			//d.h. "Status" verändert sich beim Klick nicht und man kommt beim drückversuch wieder hier an
-			if (gegebenTextField.getText().length() <= 10) {
-				
-				
-				a.setContentText("Nichts eingegeben!");
-				a.show();
-			
-			
-		}else{
-			
-				//Hole hier den zurückgegebenen Geldwert aus dem TextField
-				String rückText = (String) gegebenTextField.getText().subSequence(10, gegebenTextField.getText().length());
-				
-				try {
-					rückEingabe = Double.parseDouble(rückText);
-					
-					double rückgeld = economy.getChange(rückEingabe);
-				
-					if (rückgeld >= 0) {
-					abkassierenButton.setText("OK");
-					gegebenTextField.setText("Rückgeld: " + rückgeld);
-				
-					}else {
-						//a.setAlertType(AlertType.ERROR);
-						a.setContentText("Zu wenig Rückgeld!");
-						a.show();
-						
-					}
-				
-					
-				}catch(Exception ex){
-				
-				//a.setAlertType(AlertType.ERROR);
-				a.setContentText("Text eingegeben! Nur Zahlen erlaubt!");
-				a.show();
-				
-				}
-				
-				
-				//Wenn zu wenig Rückgeld, ändere ebenfalls den Status nicht
-				
-		}
+			rückgeld();
 			
 			break;
 
 		case "OK":
-			//Beende die Transaktion und setze Summe und ObservableList zurück und setze alle
-			//Disables/visibles/Texte auf den Anfangswert zurück
 			
-			Iterator<Items> iter = itemsObsList.iterator();
-
-			// Bei allen Items die Anzahl zurücksetzen
-			while (iter.hasNext()) {
-				Items i = (Items) iter.next();
-				i.clear();
-			}
-			
-			abkassierenButton.setText("Abkassieren");
-			economy.resetSum();
-			itemsObsList.clear();
-			summeTextField.setDisable(false);
-			gegebenTextField.setDisable(true);
-			gegebenTextField.setVisible(false);
-			gegebenTextField.setText("Gegeben:  ");
+			reset();
+			summeTextField.setText("Summe:              " + economy.getSum() + "€");
 
 			break;
 
 		default:
+			
 			break;
 
 		}
-		summeTextField.setText("Summe:              " + economy.getSum() + "€");
+		
 	}
 
 	// Ändere selectedList beim wechseln des Tabs
@@ -289,7 +213,7 @@ public class Controller implements Initializable {
 			selectedList = allItemLists.getObstItems();
 			break;
 		case "Gemuese":
-			System.out.println("Gemüse?!?");
+			
 			selectedList = allItemLists.getGemueseItems();
 
 			break;
@@ -308,5 +232,115 @@ public class Controller implements Initializable {
 		}
 
 	}
+	
 
+	
+private void plus(Items focusedItem, int focusindex) {
+	focusedItem.addItem();
+	// Das hier wieder zum aktualisieren
+	itemTable.getItems().set(focusindex, focusedItem);
+	economy.changeSum(focusedItem.getPreis());
+
+	
 }
+
+private void minus(Items focusedItem, int focusindex) {
+	focusedItem.decItem();
+	if (focusedItem.getAnzahl() <= 0) {
+
+		itemsObsList.remove(focusedItem);
+
+	} else {
+
+		itemTable.getItems().set(focusindex, focusedItem);
+	}
+
+	economy.changeSum(-focusedItem.getPreis());
+
+	
+}
+
+private void abkassieren() {
+	gegebenTextField.setVisible(true);
+	gegebenTextField.setDisable(false);
+	summeTextField.setDisable(true);
+
+	abkassierenButton.setText("Rückgeld");
+	
+}
+
+private void rückgeld() {
+	
+	Double rückEingabe =0.0;
+	//Wenn Text in gegeben unverändert (nichts eingegeben) ändere Buttontext nicht!
+	//d.h. "Status" verändert sich beim Klick nicht und man kommt beim drückversuch wieder hier an
+	if (gegebenTextField.getText().length() <= 10) {
+		
+		
+		alert.setContentText("Nichts eingegeben!");
+		alert.show();
+		gegebenTextField.setText("Gegeben:  ");
+	
+	
+		}else{
+	
+		//Hole hier den zurückgegebenen Geldwert aus dem TextField
+			String rückText = (String) gegebenTextField.getText().subSequence(10, gegebenTextField.getText().length());
+		
+			try {
+				rückEingabe = Double.parseDouble(rückText);
+			
+				double rückgeld = economy.getChange(rückEingabe);
+		
+				if (rückgeld >= 0) {
+					abkassierenButton.setText("OK");
+					gegebenTextField.setText("Rückgeld: " + rückgeld);
+		
+				}else {
+					//alert.setAlertType(AlertType.ERROR);
+					alert.setContentText("Zu wenig Rückgeld!");
+					alert.show();
+					gegebenTextField.setText("Gegeben:  ");
+				
+				}
+		
+			
+			}catch(Exception ex){
+		
+		
+				alert.setContentText("Text eingegeben! Nur Zahlen erlaubt!");
+				alert.show();
+				gegebenTextField.setText("Gegeben:  ");
+		
+			}
+		
+		
+		//Wenn zu wenig Rückgeld, ändere ebenfalls den Status nicht
+		
+		}
+	
+}
+
+
+private void reset() {
+	Iterator<Items> iter = itemsObsList.iterator();
+
+	// Bei allen Items die Anzahl zurücksetzen
+	while (iter.hasNext()) {
+		Items i = (Items) iter.next();
+		i.clear();
+	}
+	
+	abkassierenButton.setText("Abkassieren");
+	economy.resetSum();
+	itemsObsList.clear();
+	summeTextField.setDisable(false);
+	gegebenTextField.setDisable(true);
+	gegebenTextField.setVisible(false);
+	gegebenTextField.setText("Gegeben:  ");
+	
+}
+	
+}
+
+
