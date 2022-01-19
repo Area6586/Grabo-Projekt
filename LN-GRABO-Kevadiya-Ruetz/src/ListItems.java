@@ -1,11 +1,8 @@
 /**
- * 
- */
-
-/**
  * @author kevad
  *
  */
+
 public class ListItems {
 
 
