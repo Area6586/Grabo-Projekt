@@ -8,14 +8,13 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage stage) throws Exception {
-		
+
 		Parent root = FXMLLoader.load(getClass().getResource("GUI.fxml"));
 		Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setTitle("Kasse");
-        stage.show();
-		
-		
+		stage.setScene(scene);
+		stage.setTitle("Kasse");
+		stage.show();
+
 	}
 
 }

@@ -88,7 +88,7 @@
                   </GridPane>
                </content>
             </Tab>
-          <Tab closable="false" onSelectionChanged="#tabAction" text="Gemuese">
+          <Tab closable="false" onSelectionChanged="#tabAction" text="Gemues">
                <content>
                   <GridPane prefHeight="250.0" prefWidth="500.0">
                      <columnConstraints>
