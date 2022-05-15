@@ -27,8 +27,9 @@ public class Economics {
 
 	}
 	
-	public void totalDay() {
-		totalForDay = totalForDay + sum;
+	public double getTotalDay() {
+		
+		return totalForDay += sum  ;
 	}
 
 	public void resetTotal() {

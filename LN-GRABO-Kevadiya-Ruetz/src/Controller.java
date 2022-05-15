@@ -10,10 +10,21 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
 import java.util.Iterator;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 import javafx.beans.binding.Bindings;
 
@@ -34,7 +45,8 @@ public class Controller implements Initializable {
 	Items[] selectedList = allItemLists.getObstItems();
 
 	int listcounter = 0;
-
+	ArrayList<String> al = new ArrayList<String>();
+	String date1 = new Date().toString();
 	//public static final ObservableList list = FXCollections.observableArrayList();
 	
 	ObservableList<Items> itemsObsList = FXCollections.observableArrayList(); // ????
@@ -121,7 +133,7 @@ public class Controller implements Initializable {
 
 	}
 
-	public void functionAction(ActionEvent e) {
+	public void functionAction(ActionEvent e) throws IOException {
 
 		Button src = (Button) e.getSource();
 
@@ -152,6 +164,7 @@ public class Controller implements Initializable {
 		case "Rückgeld":
 
 			rückgeld();
+			
 			break;
 
 		case "OK":
@@ -248,12 +261,45 @@ public class Controller implements Initializable {
 
 	}
 	
-	public void saveInDB(){
+	
+	public void showListInGUI() {
+		
+	}
+	
+	public void saveInDB() throws IOException{
 
 		for(Items i : itemsObsList){
-		String s = (String)(i.getName()+" x "+i.getAnzahl());
-        System.out.println(s);
+		String s = (String)(i.getAnzahl() + "x" + i.getName() +  " ");
+		
+		Date date = new Date() ;
+		
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
+        
+        //File file = new File("TagesAbrechnung" + dateFormat.format(date) + ".txt") ;
+        File file = new File("TagesAbrechnung.txt") ;
+        al.add(s);
+        BufferedWriter out = new BufferedWriter(new FileWriter(file));
+        Iterator<String> iterator = al.iterator();
+
+        while(iterator.hasNext()) {
+            String element = iterator.next();
+            System.out.print( element );
+            out.write(element);
+        }
+
+        out.close();
+		//String data = String.format("%s: %s", date, al);
+		//System.out.println(economy.totalDay());
+        
 		}
+		//writing to existing file
+		//FileWriter writer = new FileWriter("TagesAbrechnung.txt", true);
+		//writer.append("tresx");
+		
+		// with date and time booking
+		
+		//out.close();
+		
 	}
 
 	private void rückgeld() {
@@ -297,6 +343,8 @@ public class Controller implements Initializable {
 			}
 
 		}
+		
+		System.out.println(economy.getTotalDay());
 
 	}
 
@@ -318,6 +366,7 @@ public class Controller implements Initializable {
 		gegebenTextField.setDisable(true);
 		gegebenTextField.setVisible(false);
 		gegebenTextField.setText("Gegeben:  ");
+		
 
 	}
 	
