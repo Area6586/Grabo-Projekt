@@ -3,14 +3,15 @@
 public class Economics {
 
 	private double sum = 0;
-	private double totalForDay =  0;
+	private double totalForDay = 0;
+
 	// Je nach positiver/negativer Differenz Summe erhöhen oder verringern
 	public void changeSum(double difference) {
 
 		sum = sum + difference;
-		
 
 	}
+
 	public double getChange(double given) {
 
 		return given - sum;
@@ -26,10 +27,10 @@ public class Economics {
 		return sum;
 
 	}
-	
+
 	public double getTotalDay() {
-		
-		return totalForDay += sum  ;
+
+		return totalForDay += sum;
 	}
 
 	public void resetTotal() {
