@@ -24,8 +24,7 @@ public class Economics {
 	public double getSum() {
 		
 		return sum;
-		
-	}
+			}
 	
 	
 	
