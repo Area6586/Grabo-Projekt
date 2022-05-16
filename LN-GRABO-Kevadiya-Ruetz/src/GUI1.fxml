@@ -156,12 +156,12 @@
 				</Tab>
 			</tabs>
 		</TabPane>
-		<TextField fx:id="summeTextField" editable="false" layoutX="40.0" layoutY="425.0" prefHeight="40.0" prefWidth="139.0" text="Summe: 0.0" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="6" GridPane.valignment="TOP">
+		<TextField fx:id="summeTextField" editable="false" layoutX="40.0" layoutY="425.0" prefHeight="40.0" prefWidth="267.0" text="Summe: 0.0" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="6" GridPane.valignment="TOP">
 			<GridPane.margin>
 				<Insets bottom="5.0" />
 			</GridPane.margin>
 		</TextField>
-		<Button fx:id="abkassierenButton" layoutX="624.0" layoutY="399.0" mnemonicParsing="false" onAction="#functionAction" prefHeight="35.0" prefWidth="64.0" text="Abkassieren" GridPane.columnIndex="5" GridPane.rowIndex="6" />
+		<Button fx:id="abkassierenButton" layoutX="308.0" layoutY="428.0" mnemonicParsing="false" onAction="#functionAction" prefHeight="35.0" prefWidth="64.0" text="Abkassieren" GridPane.columnIndex="5" GridPane.rowIndex="6" />
 		<GridPane layoutX="479.0" layoutY="313.0" prefHeight="44.0" prefWidth="99.0">
 			<columnConstraints>
 				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -172,7 +172,7 @@
 			</rowConstraints>
 		</GridPane>
 
-		<TextField fx:id="gegebenTextField" editable="false" layoutX="179.0" layoutY="425.0" prefHeight="40.0" prefWidth="210.0" text="Gegeben:  " visible="false" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.halignment="LEFT" GridPane.rowIndex="6" GridPane.valignment="TOP">
+		<TextField fx:id="gegebenTextField" layoutX="179.0" layoutY="425.0" prefHeight="40.0" prefWidth="129.0" text="Gegeben:  " visible="false" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.halignment="LEFT" GridPane.rowIndex="6" GridPane.valignment="TOP">
 
 			<GridPane.margin>
 				<Insets bottom="5.0" />

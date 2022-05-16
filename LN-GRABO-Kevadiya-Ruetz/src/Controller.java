@@ -36,17 +36,18 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
-public class Controller implements Initializable {
+public class Controller<T> implements Initializable {
 
 	ListItems allItemLists = new ListItems();
 	Economics economy = new Economics();
-	// selectedList wird beim Tabwechsel geändert, die entsprechenden Items werden
+	// selectedList wird beim Tabwechsel geÃ¤ndert, die entsprechenden Items werden
 	// geladen
 	Items[] selectedList = allItemLists.getEisItems();
 	//OrderList[] orderedList = 
 
 	int listcounter = 0;
 	ArrayList<String> al = new ArrayList<String>();
+	List<String> myArray = new ArrayList<String>();
 	//ArrayList<String> OrderList = new ArrayList<String>();
 	//String date1 = new Date().toString();
 	
@@ -61,7 +62,10 @@ public class Controller implements Initializable {
 	TableColumn<Items, String> nameCol = new TableColumn<Items, String>();
 	
 	@FXML
+	//ListView<T> myList = ((Collectors) OrderedList).toList().toBlocking().single();
 	private ListView<String> myListView;
+	//ListView<String> myListView = new ListView<>();
+	ObservableList<String> myList;
 
 	@FXML
 	private Button abkassierenButton;
@@ -81,7 +85,7 @@ public class Controller implements Initializable {
 
 		alert.setAlertType(AlertType.WARNING);
 		// DisableProperty der +/- Buttons daran binden, ob etwas in der Tabelle
-		// ausgewählt ist!
+		// ausgewÃ¤hlt ist!
 		minusButton.disableProperty().bind(Bindings.isNull(itemTable.getSelectionModel().selectedItemProperty()));
 		plusButton.disableProperty().bind(Bindings.isNull(itemTable.getSelectionModel().selectedItemProperty()));
 		// Festlegen, dass Neue Zellen bzw Rows aus den Properties der Items gebildet
@@ -92,10 +96,11 @@ public class Controller implements Initializable {
 
 		itemTable.setItems(itemsObsList); //////////////////////////////// ??
 		myListView.setItems(OrderedList);
+		
 
 	}
 
-	// ActionHandler für verschiedene Arten von Buttons. "onAction" in GUI.fxml
+	// ActionHandler fÃ¼r verschiedene Arten von Buttons. "onAction" in GUI.fxml
 	// festgelegt
 	// Generell: Auswahl der Funktion anhand von Text im Button
 	public void itemAction(ActionEvent e) {
@@ -103,7 +108,7 @@ public class Controller implements Initializable {
 		Button src = (Button) e.getSource();
 		Items sel = null;
 
-		// Hole zum Buttontext gehörendes Item aus der selectedList
+		// Hole zum Buttontext gehÃ¶rendes Item aus der selectedList
 		for (int i = 0; 0 <= selectedList.length; i++) {
 			sel = selectedList[i];
 			// getText() function ??
@@ -120,11 +125,11 @@ public class Controller implements Initializable {
 					sel.addItem();
 					// Manuelles setzen des Items an Index i
 					// -wird anscheinend zum aktualisieren der View gebraucht.
-					// ObservableList wird nur beim adden neuer Elemente berücksichtigt, nicht bei
-					// Änderung von Werten innerhalb der Items in der ObservableList!
-					// -Lazy Evaluation trotzdem gewährleistet, da nur bei Klicks ausgeführt
+					// ObservableList wird nur beim adden neuer Elemente berÃ¼cksichtigt, nicht bei
+					// Ã„nderung von Werten innerhalb der Items in der ObservableList!
+					// -Lazy Evaluation trotzdem gewÃ¤hrleistet, da nur bei Klicks ausgefÃ¼hrt
 					itemTable.getItems().set(itemsObsList.indexOf(sel), sel);
-
+ 
 				}
 
 				break;
@@ -133,7 +138,7 @@ public class Controller implements Initializable {
 		}
 
 		economy.changeSum(sel.getPreis());
-		summeTextField.setText("Summe:" + economy.getSum() + "€");
+		summeTextField.setText("Summe:" + economy.getSum() + "â‚¬");
 
 	}
 
@@ -142,20 +147,20 @@ public class Controller implements Initializable {
 		Button src = (Button) e.getSource();
 
 		Items focusItem = itemTable.getSelectionModel().getSelectedItem();
-		// Dieser Index wird wieder zur manuellen Aktualisierung der TableView benötigt
+		// Dieser Index wird wieder zur manuellen Aktualisierung der TableView benÃ¶tigt
 		int indexOfFocus = itemTable.getSelectionModel().getFocusedIndex();
 
 		switch (src.getText()) {
 		case "+":
 
 			plus(focusItem, indexOfFocus);
-			summeTextField.setText("Summe:" + economy.getSum() + "€");
+			summeTextField.setText("Summe:" + economy.getSum() + "â‚¬");
 			break;
 
 		case "-":
 
 			minus(focusItem, indexOfFocus);
-			summeTextField.setText("Summe:" + economy.getSum() + "€");
+			summeTextField.setText("Summe:" + economy.getSum() + "â‚¬");
 			break;
 
 		case "Abkassieren":
@@ -165,7 +170,7 @@ public class Controller implements Initializable {
 
 			break;
 
-		case "Rückgeld":
+		case "rückgeld":
 
 			rückgeld();
 
@@ -235,9 +240,9 @@ public class Controller implements Initializable {
 
 	}
 
-	// Beim drücken auf abkassieren/rückgeld/ok wird anhand des Textwechsels der
+	// Beim drÃ¼cken auf abkassieren/rÃ¼ckgeld/ok wird anhand des Textwechsels der
 	// Zustand des Programms gewechselt
-	// Ändere den Zustand bei Fehleingaben nicht!
+	// Ã„ndere den Zustand bei Fehleingaben nicht!
 
 	private void abkassieren() {
 		
@@ -245,32 +250,37 @@ public class Controller implements Initializable {
 		gegebenTextField.setVisible(true);
 		gegebenTextField.setDisable(false);
 		summeTextField.setDisable(true);
-		abkassierenButton.setText("Rückgeld");
+		abkassierenButton.setText("rückgeld");
 
 	}
 
 	public void showListInGUI() {
 		StringBuilder sb = new StringBuilder();
+		String s2 = "";
 		for (Items i : itemsObsList) {
-			String s1 = (String) (i.getAnzahl() + "x" + i.getName() + " ");
-
-			OrderedList.add(s1);
+			String s1 = (String) (i.getAnzahl() + "x" + i.getName() + "");
+				s2 = s2 + " " + s1;
+		
 		}
-		for (String tempString : OrderedList) {
-			sb.append(tempString);
-		}
-		System.out.println(sb);
+		OrderedList.add(s2);
+		System.out.println(s2);
 		Iterator<String> iterator = OrderedList.iterator();
 		while (iterator.hasNext()) {
 			String element = iterator.next();
 			//System.out.print(element);
 		}
+//		for (int i =0; i<myList.size(); i++){
+//		       myArray.add(myList.get(i));
+//		    }
+//		// Test by printing out to the screen or a text field
+//		    System.out.println(myList.get(0));
+//		    //myTextField.setText(myList.get(0));
 	}
 
 	public void saveInDB() throws IOException {
 
-		for (Items i : itemsObsList) {
-			String s = (String) (i.getAnzahl() + "x" + i.getName() + " ");
+//		for (Items i : itemsObsList) {
+//			String s = (String) (i.getAnzahl() + "x" + i.getName() + " ");
 
 			Date date = new Date();
 
@@ -278,21 +288,30 @@ public class Controller implements Initializable {
 
 			// File file = new File("TagesAbrechnung" + dateFormat.format(date) + ".txt") ;
 			File file = new File("Tagesbrechnung.txt");
-			al.add(s);
+			//al.add(s);
 			BufferedWriter out = new BufferedWriter(new FileWriter(file));
-			Iterator<String> iterator = al.iterator();
-
-			while (iterator.hasNext()) {
-				String element = iterator.next();
-				//System.out.print(element);
-				out.write(element);
+			
+			for (String i : myListView.getItems()) {
+				System.out.println(i);
+				out.write(i);
+				out.newLine();
 			}
+			//for (Items i : myListView) {
+//				String s = (String) (i.getAnzahl() + "x" + i.getName() + " ");
+			
+//			Iterator<String> iterator = ((ListView<String>) myListView).iterator();
+//
+//			while (iterator.hasNext()) {
+//				String element = iterator.next();
+//				//System.out.print(element);
+			
+//			}
 
 			out.close();
 			// String data = String.format("%s: %s", date, al);
 			// System.out.println(economy.totalDay());
 
-		}
+		
 		// writing to existing file
 		// FileWriter writer = new FileWriter("TagesAbrechnung.txt", true);
 		// writer.append("tresx");
@@ -310,7 +329,7 @@ public class Controller implements Initializable {
 			gegebenTextField.setText("Geben:"); //feld
 
 		} else {
-			// Hole hier den zurückgegebenen Geldwert aus dem TextField
+			// Hole hier den zurÃ¼ckgegebenen Geldwert aus dem TextField
 			String gegebenText = (String) gegebenTextField.getText().subSequence(10,
 					gegebenTextField.getText().length());
 
@@ -326,7 +345,7 @@ public class Controller implements Initializable {
 
 				} else {
 
-					alert.setContentText("Zu wenig Rückgeld!");
+					alert.setContentText("Zu wenig rückgeld!");
 					alert.show();
 					gegebenTextField.setText("Gegeben:  ");
 
@@ -350,7 +369,7 @@ public class Controller implements Initializable {
 
 		Iterator<Items> iter = itemsObsList.iterator();
 
-		// Bei allen Items in der ObservableList die Anzahl zurücksetzen
+		// Bei allen Items in der ObservableList die Anzahl zurÃ¼cksetzen
 		while (iter.hasNext()) {
 
 			Items i = (Items) iter.next();
@@ -370,10 +389,3 @@ public class Controller implements Initializable {
 	}
 
 }
-
-
-//TODO
-/* convert objervablelist in to one string
- * total add in output file
- *save file with time  
-*/
