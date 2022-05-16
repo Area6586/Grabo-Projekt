@@ -1,11 +1,9 @@
-//For sum,change and other economic purposes
 
 public class Economics {
 
 	private double sum = 0;
 	private double totalForDay = 0;
 
-	// Je nach positiver/negativer Differenz Summe erhöhen oder verringern
 	public void changeSum(double difference) {
 
 		sum = sum + difference;

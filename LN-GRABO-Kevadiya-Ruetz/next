@@ -1,0 +1,19 @@
+next
+
+public void saveInDB() throws IOException {
+			Date date = new Date();
+			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
+
+			File file = new File("TagesAbrechnung " + dateFormat.format(date) + ".txt") ;
+			BufferedWriter out = new BufferedWriter(new FileWriter(file));
+			
+			for (String i : myListView.getItems()) {
+				System.out.println(i);
+				out.write(i);
+				out.newLine();
+			}
+			//out.write(total);
+			out.close();
+			myListView.getItems().clear();
+
+	}
