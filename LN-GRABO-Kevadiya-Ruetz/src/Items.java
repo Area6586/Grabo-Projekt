@@ -4,19 +4,15 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class Items {
 
-	// name of Item
 	public SimpleStringProperty name;
 
-	// preis of Item
 	public SimpleDoubleProperty preis;
 	public SimpleIntegerProperty anzahl;
 
-	// get Method for name of item
 	public String getName() {
 		return this.name.get();
 	}
 
-	// get method for pries of item
 	public double getPreis() {
 		return this.preis.get();
 	}

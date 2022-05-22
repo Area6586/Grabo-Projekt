@@ -23,6 +23,13 @@ import java.util.List;
 import java.util.ResourceBundle;
 import javafx.beans.binding.Bindings;
 
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -41,16 +48,16 @@ public class Controller<T> implements Initializable {
 	int listcounter = 0;
 	ArrayList<String> al = new ArrayList<String>();
 	List<String> myArray = new ArrayList<String>();
-	ObservableList<Items> itemsObsList = FXCollections.observableArrayList(); // ????
+	ObservableList<Items> itemsObsList = FXCollections.observableArrayList();
 	ObservableList<String> OrderedList = FXCollections.observableArrayList();
-	
+
 	@FXML
 	TableView<Items> itemTable = new TableView<Items>();
-	@FXML 
+	@FXML
 	TableColumn<Items, Integer> count = new TableColumn<Items, Integer>();
 	@FXML
 	TableColumn<Items, String> nameCol = new TableColumn<Items, String>();
-	
+
 	@FXML
 	private ListView<String> myListView;
 
@@ -82,16 +89,15 @@ public class Controller<T> implements Initializable {
 		count.setCellValueFactory(new PropertyValueFactory<Items, Integer>("anzahl"));
 		nameCol.setCellValueFactory(new PropertyValueFactory<Items, String>("name"));
 
-
 		itemTable.setItems(itemsObsList);
 		myListView.setItems(OrderedList);
-		
+
 	}
+
 	public void itemAction(ActionEvent e) {
 
 		Button src = (Button) e.getSource();
 		Items sel = null;
-
 
 		for (int i = 0; 0 <= selectedList.length; i++) {
 			sel = selectedList[i];
@@ -108,7 +114,7 @@ public class Controller<T> implements Initializable {
 
 					sel.addItem();
 					itemTable.getItems().set(itemsObsList.indexOf(sel), sel);
- 
+
 				}
 
 				break;
@@ -149,18 +155,18 @@ public class Controller<T> implements Initializable {
 		case "rückgeld":
 
 			rückgeld();
-			
+
 			break;
-			
+
 		case "Endofday":
 
-			//saveInDB();
+			saveInDB();
 			break;
 
 		case "OK":
 
 			reset();
-			
+
 			summeTextField.setText("Summe:" + economy.getSum() + "€");
 			break;
 
@@ -192,7 +198,6 @@ public class Controller<T> implements Initializable {
 			break;
 
 		}
-
 	}
 
 	private void plus(Items focusedItem, int focusindex) {
@@ -220,7 +225,7 @@ public class Controller<T> implements Initializable {
 	}
 
 	private void abkassieren() {
-		
+
 		showListInGUI();
 		gegebenTextField.setVisible(true);
 		gegebenTextField.setDisable(false);
@@ -233,8 +238,8 @@ public class Controller<T> implements Initializable {
 		String s2 = "";
 		for (Items i : itemsObsList) {
 			String s1 = (String) (i.getAnzahl() + "x" + i.getName() + "");
-				s2 = s2 + " " + s1;
-		
+			s2 = s2 + " " + s1;
+
 		}
 		OrderedList.add(s2);
 	}
@@ -243,14 +248,33 @@ public class Controller<T> implements Initializable {
 		Date date = new Date();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
 
-		File file = new File("TagesAbrechnung " + dateFormat.format(date) + ".txt") ;
-		BufferedWriter out = new BufferedWriter(new FileWriter(file));
+		Workbook wb = new HSSFWorkbook();
+//		try (OutputStream fileOut = new FileOutputStream(
+//				"C:\\Users\\kevad\\Documents\\MEGAsync2\\1SEM\\Grabo\\uebung\\ExcelProject\\Javatpoint1.xls")) {
+//			Sheet sheet1 = wb.createSheet("First Sheet");
+//			// Sheet sheet2 = wb.createSheet("Second Sheet");
+//			wb.write(fileOut);
+//			System.out.println("Here");
+//		} catch (Exception e) {
+//			System.out.println(e.getMessage());
+//		}
 
-		out.write("total");
-		out.close();
-		
+		OutputStream file = new FileOutputStream("TagesAbrechnung " + dateFormat.format(date) + ".xls");
+		Sheet sheet1 = wb.createSheet("First Sheet");
+		wb.write(file);
+		System.out.println("Here");
+		//BufferedWriter out = new BufferedWriter(new FileWriter(file));
 
-}
+//		for (String i : myListView.getItems()) {
+//			System.out.println(i);
+//			out.write(i);
+//			out.newLine();
+//		}
+//		// out.write(total);
+//		out.close();
+		myListView.getItems().clear();
+
+	}
 
 	private void rückgeld() {
 
@@ -293,7 +317,7 @@ public class Controller<T> implements Initializable {
 
 		}
 
-		//System.out.println(economy.getTotalDay());
+		// System.out.println(economy.getTotalDay());
 
 	}
 
